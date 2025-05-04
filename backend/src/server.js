@@ -1,6 +1,19 @@
-const app = require("./app");
-const PORT = process.env.PORT || 5001;
+// server.js
+import app from "./app.js";
+import { createTables } from "./data/createTables.js";
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const PORT = process.env.PORT || 4001;
+
+//server running
+createTables()
+  .then(() => {
+    console.log("Database setup completed.");
+
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to setup database:", err);
+    process.exit(1);
+  });

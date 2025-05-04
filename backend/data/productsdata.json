@@ -1,0 +1,282 @@
+[
+  {
+    "serial_id": 1,
+    "product_name": "Men's Striped Green Shirt",
+    "price": 29.99,
+    "product_id": "a1b2c3d4",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/06e9d4231254fdb2c7fe967ad413ad7b_images.jpg"
+  },
+  {
+    "serial_id": 2,
+    "product_name": "Women's Purple Casual Shirt",
+    "price": 35.5,
+    "product_id": "e5f6a7b8",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/45ddbc6a15140556214e15923244755b_images.jpg"
+  },
+  {
+    "serial_id": 3,
+    "product_name": "Men's Pack of 3 Navy Blue Socks",
+    "price": 12.99,
+    "product_id": "c9d0e1f2",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/4ca8848ab441378a392d9d5bf0b0f3c7_images.jpg"
+  },
+  {
+    "serial_id": 4,
+    "product_name": "Men's Black Casual Watch",
+    "price": 89.0,
+    "product_id": "1234abcd",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/Skagen-Men-Black-Watch_4982b2b1a76a85a85c9adc8b4b2d523a_images.jpg"
+  },
+  {
+    "serial_id": 5,
+    "product_name": "Men's Black Casual Shoes",
+    "price": 59.99,
+    "product_id": "5678efgh",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/051d64772f1b38ff476fbf0a807f365a_images.jpg"
+  },
+  {
+    "serial_id": 6,
+    "product_name": "Women's Black Huarache Belt",
+    "price": 25.0,
+    "product_id": "9abc1234",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/8eee4563e14cf451b07f27761fd6535f_images.jpg"
+  },
+  {
+    "serial_id": 7,
+    "product_name": "Men's Black Slippers",
+    "price": 19.99,
+    "product_id": "def56789",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/53690e3f396f411e184b249672d6ebae_images.jpg"
+  },
+  {
+    "serial_id": 8,
+    "product_name": "Women's Blue Handbag",
+    "price": 45.0,
+    "product_id": "abcd1234",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/Murcia-Women-Blue-Handbag_13cfaff26872c298112a8e7da15c1e1d_images.jpg"
+  },
+  {
+    "serial_id": 9,
+    "product_name": "Boys' Navy Blue Slippers",
+    "price": 15.5,
+    "product_id": "efgh5678",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/5cab6a2305d0e63142f721228aa6d293_images.jpg"
+  },
+  {
+    "serial_id": 10,
+    "product_name": "Men's Checkered Purple Shirt",
+    "price": 39.99,
+    "product_id": "1234efgh",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/8bc9be576081baae77e8561b1132288f_images.jpg"
+  },
+  {
+    "serial_id": 11,
+    "product_name": "Men's Black Dial Watch",
+    "price": 75.0,
+    "product_id": "5678abcd",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/Police-Men-Black-Dial-Watch_5bd8cae4fc61052a6f00cfcd69c4a936_images.jpg"
+  },
+  {
+    "serial_id": 12,
+    "product_name": "Girls' White Knit Top",
+    "price": 22.99,
+    "product_id": "9abc5678",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/f3964f76c78edd85f4512d98b26d52e9_images.jpg"
+  },
+  {
+    "serial_id": 13,
+    "product_name": "Beige Full-Coverage Bra",
+    "price": 18.5,
+    "product_id": "defg1234",
+    "image_url": "http://assets.myntassets.com/v1/image/style/properties/51832/Bwitch-Beige-Full-Coverage-Bra-BW335_1_d516fa94f14f0a5ecc90df7754390eb5.jpg"
+  },
+  {
+    "serial_id": 14,
+    "product_name": "Women's Brown Handbag",
+    "price": 49.99,
+    "product_id": "abcd5678",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/b14c7bf275c6edca3e849200fb7cbf6c_images.jpg"
+  },
+  {
+    "serial_id": 15,
+    "product_name": "Men's Navy Blue T-shirt",
+    "price": 27.0,
+    "product_id": "efgh1234",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/296a8c388d05d67346db88af27d3b763_images.jpg"
+  },
+  {
+    "serial_id": 16,
+    "product_name": "Women's Casual Brown Handbag",
+    "price": 55.0,
+    "product_id": "12b4abcd",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/88d0bc675d72477729f38c30332e749a_images.jpg"
+  },
+  {
+    "serial_id": 17,
+    "product_name": "Men's Navy Blue Formal Shirt",
+    "price": 42.99,
+    "product_id": "5678ef0h",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/3af9f145845d8453a066322de35980af_images.jpg"
+  },
+  {
+    "serial_id": 18,
+    "product_name": "Men's Brown Casual Shirt",
+    "price": 38.5,
+    "product_id": "9abc1034",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/John-Players-Men-Brown-Shirt_7eec3b0568f65dc8f39a534376538551_images.jpg"
+  },
+  {
+    "serial_id": 19,
+    "product_name": "Men's White Casual Shoes",
+    "price": 60.0,
+    "product_id": "def567b9",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/9c3d77147758ab10f12caf6184fe13ef_images.jpg"
+  },
+  {
+    "serial_id": 20,
+    "product_name": "Women's Black & Gold Flats",
+    "price": 30.99,
+    "product_id": "abcd1c234",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/Carlton-London-Women-Black-Gladiator-Sandals_b8f695202ccc1889f65d57b4000a888f_images.jpg"
+  },
+  {
+    "serial_id": 21,
+    "product_name": "Women's Embroidered Green Kurta",
+    "price": 35.0,
+    "product_id": "efgh56f8",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/08a0c29d2ea67ca9449aa54466f6b0a1_images.jpg"
+  },
+  {
+    "serial_id": 22,
+    "product_name": "Women's White Handbag",
+    "price": 48.5,
+    "product_id": "1f34efgh",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/Rocky-S-Women-White-Handbag_1440a0abd2ddaf3199965e604831b164_images.jpg"
+  },
+  {
+    "serial_id": 23,
+    "product_name": "Women's Teal Handbag",
+    "price": 44.99,
+    "product_id": "56c8abcd",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/8b58c65e563423ff68cb004e1b947f69_images.jpg"
+  },
+  {
+    "serial_id": 24,
+    "product_name": "Men's Red Sneakers",
+    "price": 65.0,
+    "product_id": "a3b4c5d6",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/f07d3d6cf676a88f21834a8888d5de42_images.jpg"
+  },
+  {
+    "serial_id": 25,
+    "product_name": "Women's Leather Wallet",
+    "price": 22.5,
+    "product_id": "b7c8d9e0",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/c03cbf60b432f9f249f073a5e5a5cb0c_images.jpg"
+  },
+  {
+    "serial_id": 26,
+    "product_name": "Men's Black Denim Jeans",
+    "price": 40.99,
+    "product_id": "d3e4f5a6",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/9d3f46033a299174d6faec7f3f6e7f45_images.jpg"
+  },
+  {
+    "serial_id": 27,
+    "product_name": "Women's Red Blazer",
+    "price": 89.99,
+    "product_id": "f1a2b3c4",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/c08c1a3abf8b0c130a1c04a0e2a6b2ff_images.jpg"
+  },
+  {
+    "serial_id": 28,
+    "product_name": "Men's Brown Leather Boots",
+    "price": 75.0,
+    "product_id": "a5d6e7f8",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/8f2c99b4156c417b4da53f570b8e4c58_images.jpg"
+  },
+  {
+    "serial_id": 29,
+    "product_name": "Women's Casual White Shoes",
+    "price": 40.0,
+    "product_id": "b2c3d4e5",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/00c89f5c6e09b3fa85da888d57e99d24_images.jpg"
+  },
+  {
+    "serial_id": 30,
+    "product_name": "Men's Slim Fit Black Jeans",
+    "price": 45.99,
+    "product_id": "c9d1e1f2",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/94b5b39d2f30d983057070b44e9b8d5b_images.jpg"
+  },
+  {
+    "serial_id": 31,
+    "product_name": "Women's Floral Yellow Dress",
+    "price": 55.0,
+    "product_id": "d7e8f9a0",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/60ac72d350847b2b27bb6828cbfa2b6f_images.jpg"
+  },
+  {
+    "serial_id": 32,
+    "product_name": "Men's Casual Blue T-shirt",
+    "price": 25.5,
+    "product_id": "f4a5b6c7",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/0e3e7f8f393953df25a07c7f34b1b377_images.jpg"
+  },
+  {
+    "serial_id": 33,
+    "product_name": "Women's Red Floral Dress",
+    "price": 60.0,
+    "product_id": "e1f2a3b4",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/d8b9f8c2d9e9494b2c12a0004c786f4e_images.jpg"
+  },
+  {
+    "serial_id": 34,
+    "product_name": "Men's Blue Button-down Shirt",
+    "price": 34.99,
+    "product_id": "a9b8c7d6",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/498b05840d989b6bc01363d63a25790f_images.jpg"
+  },
+  {
+    "serial_id": 35,
+    "product_name": "Women's Black Booties",
+    "price": 85.0,
+    "product_id": "b6c7d8e9",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/8c0f0ff47e4e4ac679035fc6b2129907_images.jpg"
+  },
+  {
+    "serial_id": 36,
+    "product_name": "Men's White Button-up Shirt",
+    "price": 39.0,
+    "product_id": "d3e4f5a7",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/ba4fa21e6d48958b83919d8c2e3a36f5_images.jpg"
+  },
+  {
+    "serial_id": 37,
+    "product_name": "Women's Black Wool Scarf",
+    "price": 19.99,
+    "product_id": "f7a8b9c1",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/4362d251457fcb14db5ae240e825d34c_images.jpg"
+  },
+  {
+    "serial_id": 38,
+    "product_name": "Men's Grey Hoodie",
+    "price": 49.99,
+    "product_id": "a2b3c4d5",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/d56fb25eb32e3170a383fe3209c3d7c8_images.jpg"
+  },
+  {
+    "serial_id": 39,
+    "product_name": "Women's Floral Print Skirt",
+    "price": 35.0,
+    "product_id": "c8d9e0f1",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/a8ed7d01e9d02bfae3d618ffeff0b7ed_images.jpg"
+  },
+  {
+    "serial_id": 40,
+    "product_name": "Men's Brown Leather Jacket",
+    "price": 110.0,
+    "product_id": "d4e5f6a7",
+    "image_url": "http://assets.myntassets.com/v1/images/style/properties/36b38e2e1deaa8fe7d0133e5e888a55c_images.jpg"
+  }
+]
