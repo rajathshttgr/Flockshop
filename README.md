@@ -128,7 +128,7 @@ This repository contains my submission for the **FlockShop.ai Assignment**. The 
 
 ## Screenshots & Demo
 
-- Screenshots of the app are included in the `screenshots` folder.
+- Screenshots of the app are available in the [screenshots](./screenshots) folder.
 - [Watch the Loom Video Demo](https://www.loom.com/share/0055a24f7a8549dd939d04a11841731f?sid=04626d2c-7b11-4c72-b3a6-8fda3d8fac47)
 
 ---
