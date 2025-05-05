@@ -200,7 +200,9 @@ export default function Page() {
             {/* signup page */}
             <div
               className={`${
-                signupForm ? "w-90  flex items-center justify-center" : "hidden"
+                signupForm
+                  ? "w-90  flex flex-col items-center justify-center"
+                  : "hidden"
               } `}
             >
               <form
