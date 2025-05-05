@@ -51,7 +51,7 @@ export const NewCollectionButton = () => {
 
     try {
       await axios.post(
-        "http://localhost:4000/api/wishlist/wishlists",
+        `${process.env.NEXT_PUBLIC_API_URL}/wishlist/wishlists`,
         requestBody
       );
       toast.success("Collection created successfully");
