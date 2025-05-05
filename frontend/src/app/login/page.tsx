@@ -28,8 +28,9 @@ export default function Page() {
       } else {
         toast.error("Login failed: No token returned.");
       }
-    } catch (error: any) {
-      toast.error(error?.response?.data?.message || "Login failed.");
+    } catch (error) {
+      toast.error("Login failed.");
+      console.log(error);
     } finally {
       setLoading(false);
     }

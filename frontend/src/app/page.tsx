@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-
 import { Carousels } from "@/components/home/Carousels";
 import { MilestoneBoard } from "@/components/home/MilestoneBoard";
 import { ProductsSection } from "@/components/home/ProductsSection";
@@ -13,7 +12,6 @@ import { Header } from "@/components/layouts/Header";
 export default function Home() {
   const router = useRouter();
   const [isAuthChecked, setIsAuthChecked] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -22,20 +20,7 @@ export default function Home() {
     } else {
       setIsAuthChecked(true);
     }
-  }, []);
-
-  const handleSignup = async () => {
-    setIsLoading(true);
-    try {
-      // Simulate signup process
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      // Handle successful signup logic here
-    } catch (error) {
-      console.error("Signup failed", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  }, [router]);
 
   if (!isAuthChecked) {
     return null;

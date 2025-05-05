@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -11,13 +10,20 @@ import axios from "axios";
 
 export const WishlistSection = () => {
   const router = useRouter();
-  const [wishlists, setWishlists] = React.useState([]);
+  const [wishlists, setWishlists] = React.useState<{
+    data: { id: string; wishlist_id: string; name: string }[];
+  } | null>(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    const decodedToken: any = jwtDecode(token);
-    const username = decodedToken?.username;
+    if (!token) {
+      console.error("Token not found in localStorage");
+      return;
+    }
+
+    const decoded = jwtDecode<{ username: string }>(token);
+    const username = decoded.username;
 
     // const username="rajath991";
     const fetchWishlists = async () => {
@@ -47,7 +53,7 @@ export const WishlistSection = () => {
       </div>
       <div className="border-l-2 border-gray-300 h-20 mx-4"></div>
 
-      {wishlists.data?.map((wishlist) => (
+      {wishlists?.data?.map((wishlist) => (
         <div
           key={wishlist.id}
           className="flex flex-col items-center flex-shrink-0 mx-4"

@@ -56,7 +56,11 @@ export default function Logincard({
         toast.error("Login failed: No token returned.");
       }
     } catch (error: unknown) {
-      toast.error(error?.response?.data?.message || "Login failed.");
+      if (axios.isAxiosError(error) && error.response) {
+        toast.error(error.response.data?.message || "Login failed.");
+      } else {
+        toast.error("An unexpected error occurred.");
+      }
     } finally {
       setLoading(false);
     }

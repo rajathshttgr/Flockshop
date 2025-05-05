@@ -9,9 +9,22 @@ import { jwtDecode } from "jwt-decode";
 export const NewCollectionButton = () => {
   const [isOverlayOpen, setOverlayOpen] = useState(false);
   const [collectionName, setCollectionName] = useState("");
-  const [shareSetting, setShareSetting] = useState<
-    "private" | "shared" | "public"
-  >("private");
+  const shareOptions = [
+    {
+      value: "private",
+      label: "Private",
+      desc: "Only you can view",
+    },
+    {
+      value: "public",
+      label: "Public",
+      desc: "Anyone can search for and view",
+    },
+  ] as const;
+
+  type ShareSetting = (typeof shareOptions)[number]["value"];
+
+  const [shareSetting, setShareSetting] = useState<ShareSetting>("private");
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,9 +33,8 @@ export const NewCollectionButton = () => {
       console.error("No token found");
       return;
     }
-
-    const decodedToken: any = jwtDecode(token);
-    const createdBy = decodedToken?.username;
+    const decoded = jwtDecode<{ username: string }>(token);
+    const createdBy = decoded.username;
 
     if (!createdBy) {
       console.error("Invalid token: username not found");
@@ -110,26 +122,16 @@ export const NewCollectionButton = () => {
                 Share settings
               </label>
               <div className="space-y-2">
-                {[
-                  {
-                    value: "private",
-                    label: "Private",
-                    desc: "Only you can view",
-                  },
-
-                  {
-                    value: "public",
-                    label: "Public",
-                    desc: "Anyone can search for and view",
-                  },
-                ].map(({ value, label, desc }) => (
+                {shareOptions.map(({ value, label, desc }) => (
                   <label key={value} className="flex items-center space-x-3">
                     <input
                       type="radio"
                       name="shareSetting"
                       value={value}
                       checked={shareSetting === value}
-                      onChange={() => setShareSetting(value as any)}
+                      onChange={(e) =>
+                        setShareSetting(e.target.value as ShareSetting)
+                      }
                     />
                     <div>
                       <div className="font-medium">{label}</div>

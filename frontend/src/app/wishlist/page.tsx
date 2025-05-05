@@ -16,7 +16,14 @@ const Page = () => {
     username: string;
   }
 
-  const [wishlists, setWishlists] = useState([]);
+  interface Wishlist {
+    wishlist_id: string;
+    name: string;
+    created_by: string;
+    created_at: string;
+  }
+
+  const [wishlists, setWishlists] = useState<Wishlist[]>([]);
 
   useEffect(() => {
     const fetchWishlists = async () => {

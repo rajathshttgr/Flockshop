@@ -7,6 +7,7 @@ import { Header } from "../../../components/layouts/Header";
 import { Footer } from "../../../components/layouts/Footer";
 import { useRouter, useParams } from "next/navigation";
 import { jwtDecode } from "jwt-decode";
+import Image from "next/image";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Logincard from "@/components/auth/logincard";
@@ -18,7 +19,6 @@ type ProductCardProps = {
   product_id?: string;
   added_by?: string;
   listid: string;
-  onAddToWishlist: (product_id?: string) => void;
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -28,7 +28,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
   product_id,
   added_by,
   listid,
-  onAddToWishlist,
 }) => {
   const [username, setUsername] = useState<string>("");
 
@@ -36,7 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     const token = localStorage.getItem("token");
 
     if (token) {
-      const decoded: any = jwtDecode(token);
+      const decoded = jwtDecode<{ username: string }>(token);
       setUsername(decoded.username);
     }
   }, []);
@@ -58,10 +57,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
     <div className="flex flex-col items-center justify-between h-full p-4 bg-gray-200 rounded-md">
       <div className="w-full h-36 bg-gray-50 rounded-md">
         {image_url ? (
-          <img
+          <Image
             src={image_url}
             alt={name}
-            className="w-full h-full object-cover rounded-md"
+            layout="fill"
+            objectFit="cover"
+            className="rounded-md"
           />
         ) : (
           <div className="flex items-center justify-center w-full h-full text-gray-400">
@@ -124,7 +125,18 @@ const Page = () => {
   const [isNewUser, setIsNewUser] = useState<boolean | null>(null);
   const [listname, setListname] = useState("");
   const [createdBy, setCreatedBy] = useState("");
-  const [wishlistProducts, setWishlistProducts] = useState([]);
+  type WishlistProduct = {
+    id: string;
+    product_name: string;
+    price: number;
+    image_url?: string;
+    product_id?: string;
+    added_by?: string;
+  };
+
+  const [wishlistProducts, setWishlistProducts] = useState<WishlistProduct[]>(
+    []
+  );
   const router = useRouter();
   const params = useParams();
   const [isFollow, setIsFollow] = useState("Follow");
@@ -152,6 +164,7 @@ const Page = () => {
         );
         if (!response.data.data) router.push("/404");
       } catch (error) {
+        console.log(error);
         router.push("/404");
       }
     };
@@ -164,7 +177,7 @@ const Page = () => {
     let decodedUsername = "";
 
     if (token) {
-      const decoded: any = jwtDecode(token);
+      const decoded = jwtDecode<{ username: string }>(token);
       decodedUsername = decoded.username;
     }
 
@@ -263,10 +276,6 @@ const Page = () => {
             product_id={product.product_id}
             added_by={product.added_by}
             listid={listid}
-            onAddToWishlist={(product_id) => {
-              setOverlayOpen(true);
-              console.log("Product ID:", product_id);
-            }}
           />
         ))}
       </div>

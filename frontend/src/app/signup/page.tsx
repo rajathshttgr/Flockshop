@@ -104,10 +104,9 @@ export default function Page() {
           } else {
             toast.error("Signup failed. Please try again.");
           }
-        } catch (error: any) {
-          toast.error(
-            error.response?.data?.message || "Signup failed. Please try again."
-          );
+        } catch (error) {
+          toast.error("Signup failed. Please try again.");
+          console.log(error);
         }
       }
     } catch (error) {

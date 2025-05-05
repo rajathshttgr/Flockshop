@@ -84,11 +84,26 @@ const ProductCard: React.FC<ProductCardProps> = ({
   );
 };
 
+type Wishlist = {
+  id: number;
+  wishlist_id: string;
+  name: string;
+  is_private: boolean;
+};
+
+type Product = {
+  id: number;
+  product_name: string;
+  price: string;
+  product_id: string;
+  image_url: string;
+};
+
 // ========== Main ProductsSection Component ==========
 export const ProductsSection: React.FC = () => {
   const [isOverlayOpen, setOverlayOpen] = useState(false);
-  const [products, setProducts] = useState<any[]>([]);
-  const [wishlists, setWishlists] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [wishlists, setWishlists] = useState<Wishlist[]>([]);
   const [username, setUsername] = useState<string>("");
   const [selectedWishlistId, setSelectedWishlistId] = useState<string>("");
   const [selectedProductId, setSelectedProductId] = useState<string>("");
@@ -96,7 +111,7 @@ export const ProductsSection: React.FC = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      const decoded: any = jwtDecode(token);
+      const decoded = jwtDecode<{ username: string }>(token);
       setUsername(decoded.username);
     }
   }, []);
@@ -113,19 +128,19 @@ export const ProductsSection: React.FC = () => {
     }
   };
 
-  const fetchWishlists = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/wishlist/wishlists/${username}`
-      );
-      return response.data;
-    } catch (error) {
-      console.error("Error fetching wishlists:", error);
-      return [];
-    }
-  };
-
   useEffect(() => {
+    const fetchWishlists = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/wishlist/wishlists/${username}`
+        );
+        return response.data;
+      } catch (error) {
+        console.error("Error fetching wishlists:", error);
+        return [];
+      }
+    };
+
     const loadData = async () => {
       if (!username) return;
 
@@ -192,7 +207,7 @@ export const ProductsSection: React.FC = () => {
               name={product.product_name}
               price={product.price}
               imageUrl={product.image_url}
-              productId={product.id}
+              productId={product.product_id}
               onAddToWishlist={(id) => {
                 setSelectedProductId(id);
                 setOverlayOpen(true);
@@ -214,7 +229,7 @@ export const ProductsSection: React.FC = () => {
               name={product.product_name}
               price={product.price}
               imageUrl={product.image_url}
-              productId={product.id}
+              productId={product.product_id}
               onAddToWishlist={(id) => {
                 setSelectedProductId(id);
                 setOverlayOpen(true);
