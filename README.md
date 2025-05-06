@@ -2,7 +2,17 @@
 
 This repository contains my submission for the **FlockShop.ai Assignment**. The goal of this assignment was to build a "Shared Wishlist App" where users can collaboratively create and manage wishlists in real-time.
 
+🔗 **Live Project**: [https://flockshop.vercel.app](https://flockshop.vercel.app)
+
 ---
+
+## Screenshots & Demo
+
+- Screenshots of the app are available in the [screenshots](./screenshots) folder.
+- 🎥 [Watch the Loom Video Demo](https://www.loom.com/share/0055a24f7a8549dd939d04a11841731f?sid=04626d2c-7b11-4c72-b3a6-8fda3d8fac47)
+
+---
+
 
 ## Assignment Overview
 
@@ -69,10 +79,11 @@ This repository contains my submission for the **FlockShop.ai Assignment**. The 
      JWT_SECRET="SECRETKEY"
      DB_HOST=localhost
      DB_PORT=5432
-     DB_USER=admin
-     DB_PASSWORD=admin123
+     DB_USER=<username>
+     DB_PASSWORD=<password>
      DB_NAME=flockshopdb
-     DATABASE_URL="postgresql://admin:admin123@localhost:5432/flockshopdb"
+     DATABASE_URL=postgresql://<username>:<password>@localhost:5432/flockshopdb
+
      ```
    - Frontend `.env.local`:
      ```
@@ -126,12 +137,6 @@ This repository contains my submission for the **FlockShop.ai Assignment**. The 
 
 ---
 
-## Screenshots & Demo
-
-- Screenshots of the app are available in the [screenshots](./screenshots) folder.
-- [Watch the Loom Video Demo](https://www.loom.com/share/0055a24f7a8549dd939d04a11841731f?sid=04626d2c-7b11-4c72-b3a6-8fda3d8fac47)
-
----
 
 ## Thoughts on Scaling
 
