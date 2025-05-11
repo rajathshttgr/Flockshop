@@ -22,6 +22,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/product", productsRoutes);
 app.use("/api/wishlist", wishlistRoutes);
 app.use("/api/list", listsRoutes);
+
 //Error handling middlewar
 app.use(errorHandler);
 

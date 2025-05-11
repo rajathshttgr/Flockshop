@@ -13,7 +13,6 @@ This repository contains my submission for the **FlockShop.ai Assignment**. The 
 
 ---
 
-
 ## Assignment Overview
 
 ### Features Implemented
@@ -74,6 +73,7 @@ This repository contains my submission for the **FlockShop.ai Assignment**. The 
 3. **Set Up Environment Variables**
 
    - Backend `.env`:
+
      ```
      PORT=4000
      JWT_SECRET="SECRETKEY"
@@ -85,6 +85,7 @@ This repository contains my submission for the **FlockShop.ai Assignment**. The 
      DATABASE_URL=postgresql://<username>:<password>@localhost:5432/flockshopdb
 
      ```
+
    - Frontend `.env.local`:
      ```
      NEXT_PUBLIC_API_URL=http://localhost:4000/api
@@ -136,7 +137,6 @@ This repository contains my submission for the **FlockShop.ai Assignment**. The 
 - Real-time sync is limited to wishlist updates.
 
 ---
-
 
 ## Thoughts on Scaling
 

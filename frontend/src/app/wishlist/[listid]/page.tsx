@@ -55,14 +55,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
   return (
     <div className="flex flex-col items-center justify-between h-full p-4 bg-gray-200 rounded-md">
-      <div className="w-full h-36 bg-gray-50 rounded-md">
+      <div className="w-full h-36 bg-gray-50 rounded-md relative overflow-hidden">
         {image_url ? (
           <Image
             src={image_url}
             alt={name}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-md"
+            fill
+            className="object-cover rounded-md"
           />
         ) : (
           <div className="flex items-center justify-center w-full h-full text-gray-400">
@@ -70,6 +69,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         )}
       </div>
+
       <div className="flex justify-between items-center w-full mt-2">
         <p className="text-2xl font-bold text-gray-800 mt-2">{name}</p>
         <div className="relative mt-2">
@@ -125,6 +125,7 @@ const Page = () => {
   const [isNewUser, setIsNewUser] = useState<boolean | null>(null);
   const [listname, setListname] = useState("");
   const [createdBy, setCreatedBy] = useState("");
+
   type WishlistProduct = {
     id: string;
     product_name: string;
@@ -271,7 +272,7 @@ const Page = () => {
           <ProductCard
             key={product.id}
             name={product.product_name}
-            price={`₹${product.price}/-`}
+            price={`$${product.price}/-`}
             image_url={product.image_url}
             product_id={product.product_id}
             added_by={product.added_by}

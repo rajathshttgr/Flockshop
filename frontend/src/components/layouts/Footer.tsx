@@ -74,6 +74,7 @@ export const Footer = () => {
           © 2025 Rajath Shettigar. All rights reserved.
         </div>
       </div>
+      <div className="text-right">version 1.0.1</div>
     </div>
   );
 };

@@ -7,9 +7,9 @@ import Image from "next/image";
 
 const images = [
   "https://img.freepik.com/premium-photo/fashion-models-strutting-down-runways-new-york-fashion-weekgenerated-with-ai_130181-22428.jpg",
-  "https://assets.gqindia.com/photos/5e25699b65e6530008ab9cf3/16:9/w_1920,c_limit/DIOR-MEN'S-WINTER-20-21---GROUPSHOT-BY-BRETT-LLOYD-FOR-DIOR.jpg",
-  "https://t4.ftcdn.net/jpg/06/52/95/39/240_F_652953949_YB0jOSYkzAzqRbgeOTCtGCMQhGrzd63A.jpg",
-  "https://as2.ftcdn.net/v2/jpg/12/69/73/31/1000_F_1269733184_Fad1aqd1hEpYUxwUGCfNQLMgvOvABJKO.jpg",
+  "https://img.freepik.com/free-photo/fashionable-mannequins-window-display-showcasing-current-trends_60438-3531.jpg",
+  "https://img.freepik.com/premium-photo/stylish-woman-with-green-jacket-sunglasses_1353244-32800.jpg",
+  "https://img.freepik.com/premium-photo/standing-small-sidewalk-hands-tucked-into-his-pockets-is-man-wearing-chic-greygreen-suit-sunglasses_28914-62899.jpg",
 ];
 
 export const Carousels = () => {

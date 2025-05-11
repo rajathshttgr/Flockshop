@@ -56,6 +56,7 @@ export const NewCollectionButton = () => {
       );
       toast.success("Collection created successfully");
       setOverlayOpen(false); // Close overlay after successful submission
+      window.location.reload();
     } catch (error) {
       console.error("Error creating collection:", error);
     }

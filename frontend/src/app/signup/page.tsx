@@ -16,24 +16,17 @@ export default function Page() {
   const [errorMssg, setErrorMssg] = useState("");
   const [isValid, setIsValid] = useState<boolean | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isSpinning, setIsSpinning] = useState<boolean>(false);
   const [signupForm, setSignupForm] = useState<boolean>(false);
 
   const formRef = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    if (username) {
-      validateUsername(username);
-    } else {
-      setIsValid(null);
-      setErrorMssg("");
-    }
-  }, [username]);
 
   const validateUsername = async (username: string) => {
     const regexp = /^[a-z0-9]{5,20}$/;
     if (regexp.test(username)) {
       try {
         setIsLoading(true);
+        setErrorMssg("");
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/auth/check-username/${username}`
         );
@@ -48,14 +41,30 @@ export default function Page() {
           setIsValid(true);
         }
       } catch (error) {
-        console.error("Error:", error);
+        toast.error("Unexped Error Occured");
+        console.error(error);
       }
     } else {
-      setErrorMssg("Please enter a username between 5 and 20 characters");
-      setIsValid(false);
-      return;
+      setIsLoading(true);
+      setErrorMssg("");
+      setIsValid(null);
+      setTimeout(() => {
+        setIsLoading(false);
+        setErrorMssg("Please enter a username between 5 and 20 characters");
+        setIsValid(false);
+        return;
+      }, 500);
     }
   };
+
+  useEffect(() => {
+    if (username) {
+      validateUsername(username);
+    } else {
+      setIsValid(null);
+      setErrorMssg("");
+    }
+  }, [username]);
 
   const handleClick = () => {
     if (isValid) {
@@ -64,13 +73,15 @@ export default function Page() {
       }
       setSignupForm(true);
     } else {
-      setErrorMssg("Please Enter the Username");
+      toast.error("Please Enter Valid Username");
+      setErrorMssg("Please Enter Username");
       setIsValid(false);
     }
   };
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    setIsSpinning(true);
 
     try {
       console.log(email);
@@ -80,7 +91,6 @@ export default function Page() {
       );
       const data = await response.json();
       if (data.data.exists) {
-        setIsValid(false);
         toast.error("Email already exists, try Login instead");
         return;
       } else {
@@ -111,6 +121,8 @@ export default function Page() {
       }
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setIsSpinning(false);
     }
   };
 
@@ -149,11 +161,11 @@ export default function Page() {
               </p>
               <div
                 className={`flex px-2 m-2 mt-4 h-12 w-90 sm:w-80 lg:w-1/2 bg-gray-200 rounded-xl focus-within:ring-1 ${
-                  isValid === true
+                  isValid == null
+                    ? "focus-within:ring-black"
+                    : isValid === true
                     ? "focus-within:ring-green-500"
-                    : isValid === false
-                    ? "focus-within:ring-red-500"
-                    : "focus-within:ring-black"
+                    : "focus-within:ring-red-500"
                 }`}
               >
                 <p className="py-3 shrink-0">flockshop.in/</p>
@@ -178,10 +190,20 @@ export default function Page() {
 
               <div className="sm:hidden flex flex-col justify-between border-gray-200 mt-8">
                 <button
-                  className="bg-amber-300 hover:bg-amber-400 h-12 p-2 w-90 rounded-3xl ml-2 cursor-pointer"
+                  className={`${
+                    isSpinning
+                      ? "bg-amber-200 cursor-not-allowed"
+                      : "bg-amber-300 hover:bg-amber-400 cursor-pointer"
+                  } h-12 p-2 w-90 rounded-3xl ml-2`}
+                  type="submit"
                   onClick={handleClick}
+                  disabled={isSpinning}
                 >
-                  Sign Up
+                  {isSpinning ? (
+                    <ImSpinner8 className="animate-spin text-white h-5 w-5 ml-10" />
+                  ) : (
+                    "Sign Up"
+                  )}
                 </button>
                 <p className="text-gray-600 text-md text-center mt-4 m-2">
                   By continuing, you agree to the{" "}
@@ -243,10 +265,20 @@ export default function Page() {
 
               <div className="sm:hidden flex flex-col justify-between border-gray-200 mt-8">
                 <button
-                  className="bg-amber-300 hover:bg-amber-400 h-12 p-2 w-90 rounded-3xl ml-2 cursor-pointer"
+                  className={`${
+                    isSpinning
+                      ? "bg-amber-200 cursor-not-allowed"
+                      : "bg-amber-300 hover:bg-amber-400 cursor-pointer"
+                  } h-12 p-2 w-32 rounded-3xl ml-2`}
+                  type="submit"
                   onClick={handleClick}
+                  disabled={isSpinning}
                 >
-                  Sign Up
+                  {isSpinning ? (
+                    <ImSpinner8 className="animate-spin text-white h-5 w-5 ml-10" />
+                  ) : (
+                    "Sign Up"
+                  )}
                 </button>
                 <p className="text-gray-600 text-md text-center mt-4 m-4">
                   By continuing, you agree to the{" "}
@@ -274,11 +306,20 @@ export default function Page() {
               </span>
             </p>
             <button
-              className="bg-amber-300 hover:bg-amber-400 h-12 p-2 w-32 rounded-3xl ml-2 cursor-pointer"
+              className={`${
+                isSpinning
+                  ? "bg-amber-200 cursor-not-allowed"
+                  : "bg-amber-300 hover:bg-amber-400 cursor-pointer"
+              } h-12 p-2 w-32 rounded-3xl ml-2`}
               type="submit"
               onClick={handleClick}
+              disabled={isSpinning}
             >
-              Sign Up
+              {isSpinning ? (
+                <ImSpinner8 className="animate-spin text-white h-5 w-5 ml-10" />
+              ) : (
+                "Continue"
+              )}
             </button>
           </div>
         </div>

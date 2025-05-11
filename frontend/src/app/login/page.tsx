@@ -2,18 +2,19 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { ImSpinner8 } from "react-icons/im";
 import toast from "react-hot-toast";
 import axios from "axios";
 
 export default function Page() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [isloading, setIsloading] = useState<boolean>(false);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+    setIsloading(true);
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
@@ -29,10 +30,10 @@ export default function Page() {
         toast.error("Login failed: No token returned.");
       }
     } catch (error) {
-      toast.error("Login failed.");
+      toast.error("Login failed. Please try again.");
       console.log(error);
     } finally {
-      setLoading(false);
+      setIsloading(false);
     }
   };
 
@@ -41,14 +42,15 @@ export default function Page() {
       <header className="flex justify-end px-6">
         <p className="p-5 flex">
           <span className="sm:block hidden">Don&apos;t have an account? </span>
-          <span
-            className="underline cursor-pointer pl-1 hover:no-underline"
+          <button
+            className="underline cursor-pointer px-1 hover:no-underline"
             onClick={() => router.push("/signup")}
           >
             Sign Up
-          </span>
+          </button>
         </p>
       </header>
+
       <div className="flex justify-center items-center pb-16">
         <div className="w-[380px] text-2xl text-center font-bold mt-12">
           <div className="mb-6">Welcome back</div>
@@ -71,10 +73,18 @@ export default function Page() {
             />
             <button
               type="submit"
-              className="bg-amber-300 w-90 h-12 rounded-3xl m-2 mt-6 shadow font-medium text-white cursor-pointer hover:bg-amber-400"
-              disabled={loading}
+              className={`${
+                isloading
+                  ? "bg-amber-200 cursor-not-allowed"
+                  : "bg-amber-300 hover:bg-amber-400 cursor-pointer"
+              } flex h-12 p-2 w-90 rounded-3xl ml-2 font-medium text-white items-center justify-center`}
+              disabled={isloading}
             >
-              {loading ? "Logging in..." : "Login"}
+              {isloading ? (
+                <ImSpinner8 className="animate-spin text-white h-5 w-5" />
+              ) : (
+                "Login"
+              )}
             </button>
           </form>
         </div>
