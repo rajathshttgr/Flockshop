@@ -49,7 +49,7 @@ const Page = () => {
     };
 
     checkWishlistExists();
-  }, [listid]);
+  }, [listid, router]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
