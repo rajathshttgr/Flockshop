@@ -44,10 +44,13 @@ export default function Logincard({
         const decodedToken = jwtDecode<{ username: string }>(token);
         const userId = decodedToken?.username;
 
-        await axios.post("http://localhost:4000/api/wishlist/follower", {
-          wishlist_id: wishlistid,
-          user_id: userId,
-        });
+        await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}/wishlist/follower`,
+          {
+            wishlist_id: wishlistid,
+            user_id: userId,
+          }
+        );
 
         setIsFollow("Following"); // Update follow status
         setOverlayOpen(false); // Close the overlay
@@ -104,7 +107,7 @@ export default function Logincard({
           </div>
           <button
             type="submit"
-            className="w-full h-12 bg-amber-400 text-white rounded-md font-medium hover:bg-amber-500 transition disabled:opacity-50"
+            className="cursor-pointer w-full h-12 bg-amber-400 text-white rounded-md font-medium hover:bg-amber-500 transition disabled:opacity-50"
             disabled={loading}
           >
             {loading ? "Logging in..." : "Login"}
