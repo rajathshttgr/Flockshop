@@ -20,42 +20,45 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/wishlist/${wishlist_id}`); // ✅ fixed here
+    router.push(`/wishlist/${wishlist_id}`);
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-6 m-4 text-gray-800 border border-gray-200 hover:shadow-lg transition-shadow duration-300">
-      <div className="flex items-center justify-between mb-4">
-        <h1
-          className="text-xl hover:text-2xl font-semibold truncate cursor-pointer"
-          onClick={handleClick}
-        >
-          {title}
-        </h1>
-        <div className="flex space-x-2">
+    <div className="w-full bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-6 mb-4">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+        <div>
+          <h2
+            onClick={handleClick}
+            className="text-2xl font-semibold text-gray-900 cursor-pointer hover:text-indigo-600 transition-colors"
+          >
+            {title}
+          </h2>
+          <p className="text-sm text-gray-500">ID: {wishlist_id}</p>
+        </div>
+        <div className="flex gap-2">
           <button
-            className="p-2 bg-gray-100 rounded-full text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            className="p-2 rounded-lg bg-gray-100 hover:bg-indigo-100 text-gray-600 hover:text-indigo-600 transition-colors"
             aria-label="Edit"
           >
-            <FaEdit className="h-5 w-5" />
+            <FaEdit className="h-4 w-4" />
           </button>
           <button
-            className="p-2 bg-gray-100 rounded-full text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            className="p-2 rounded-lg bg-gray-100 hover:bg-red-100 text-gray-600 hover:text-red-600 transition-colors"
             aria-label="Delete"
           >
-            <MdDelete className="h-5 w-5" />
+            <MdDelete className="h-4 w-4" />
           </button>
         </div>
       </div>
-      <div className="bg-gray-50 p-4 rounded-lg">
-        <p className="text-sm text-gray-700">
-          <span className="font-medium">Wishlist ID:</span> {wishlist_id}
+
+      <div className="text-sm text-gray-700 space-y-1">
+        <p>
+          <span className="font-medium text-gray-600">Created by:</span>{" "}
+          {createdBy}
         </p>
-        <p className="text-sm text-gray-700">
-          <span className="font-medium">Created by:</span> {createdBy}
-        </p>
-        <p className="text-sm text-gray-700">
-          <span className="font-medium">Last updated:</span> {lastUpdated}
+        <p>
+          <span className="font-medium text-gray-600">Last updated:</span>{" "}
+          {lastUpdated}
         </p>
       </div>
     </div>

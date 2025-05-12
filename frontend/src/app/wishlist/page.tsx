@@ -7,10 +7,14 @@ import { CollectionCard } from "@/components/wishlist/CollectionCard";
 import { IoMdMenu } from "react-icons/io";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import { EmptyWishlist } from "@/components/wishlist/EmptyWishlist";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
-  const isEmpty = false; // Replace with your logic to check if the wishlist is empty
   const [showMenu, setShowMenu] = useState(false);
+  const [isEmpty, setIsEmpty] = useState<boolean>(true);
+  const [username, setUsername] = useState("");
+  const router = useRouter();
 
   interface DecodedToken {
     username: string;
@@ -31,6 +35,7 @@ const Page = () => {
         const token = localStorage.getItem("token");
         if (token) {
           const decoded: DecodedToken = jwtDecode(token);
+          setUsername(decoded.username);
 
           const response = await axios.get(
             `${process.env.NEXT_PUBLIC_API_URL}/wishlist/wishlists/${decoded.username}`
@@ -46,6 +51,10 @@ const Page = () => {
     fetchWishlists();
   }, []);
 
+  useEffect(() => {
+    setIsEmpty(wishlists.length === 0);
+  }, [wishlists]);
+
   return (
     <div>
       <div className="fixed top-0 z-50 flex w-full h-20 bg-gray-800 text-white items-center justify-between sm:px-40 sm:pr-60 px-4 shadow-2xl">
@@ -55,43 +64,18 @@ const Page = () => {
       <div className="flex bg-gray-100 pt-20 pb-10 p-4">
         <div className="sm:flex flex-col hidden mt-4 bg-white m-1 rounded-lg h-screen w-72 min-w-[18rem] px-3">
           <NewCollectionButton />
-          <div className="mt-4 px-4">
-            <h2 className="text-lg font-bold mb-2">Collections</h2>
-            <ul className="space-y-2">
-              <li>
-                <h3 className="font-semibold">Public</h3>
-                <ul className="ml-4 list-disc">
-                  <li className="hover:text-blue-500 cursor-pointer">
-                    Shared Wishlist
-                  </li>
-                  <li className="hover:text-blue-500 cursor-pointer">
-                    Trending Items
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h3 className="font-semibold">Shared</h3>
-                <ul className="ml-4 list-disc">
-                  <li className="hover:text-blue-500 cursor-pointer">
-                    Family Wishlist
-                  </li>
-                  <li className="hover:text-blue-500 cursor-pointer">
-                    Friends Wishlist
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h3 className="font-semibold">Private</h3>
-                <ul className="ml-4 list-disc">
-                  <li className="hover:text-blue-500 cursor-pointer">
-                    Personal Favorites
-                  </li>
-                  <li className="hover:text-blue-500 cursor-pointer">
-                    Secret Wishlist
-                  </li>
-                </ul>
-              </li>
-            </ul>
+          <div className="mt-2 p-1">
+            {wishlists.map((wishlist) => (
+              <div
+                key={wishlist.wishlist_id}
+                onClick={() => router.push(`/wishlist/${wishlist.wishlist_id}`)}
+                className="w-full p-2 my-2 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:bg-amber-100 transition-all duration-200 cursor-pointer"
+              >
+                <h3 className="text-lg font-medium text-gray-800 truncate">
+                  {wishlist.name}
+                </h3>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -103,45 +87,20 @@ const Page = () => {
             />
           </div>
           {showMenu && (
-            <div className="sm:hidden flex flex-col bg-white mx-4 rounded-lg px-4 py-2 shadow-md mt-1">
+            <div className="sm:hidden flex flex-col bg-white mx-4 rounded-lg px-4 py-2 shadow-md mt-1 ">
               <NewCollectionButton />
-              <div className="mt-4 px-4">
-                <h2 className="text-lg font-bold mb-2">Collections</h2>
-                <ul className="space-y-2">
-                  <li>
-                    <h3 className="font-semibold">Public</h3>
-                    <ul className="ml-4 list-disc">
-                      <li className="hover:text-blue-500 cursor-pointer">
-                        Shared Wishlist
-                      </li>
-                      <li className="hover:text-blue-500 cursor-pointer">
-                        Trending Items
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <h3 className="font-semibold">Shared</h3>
-                    <ul className="ml-4 list-disc">
-                      <li className="hover:text-blue-500 cursor-pointer">
-                        Family Wishlist
-                      </li>
-                      <li className="hover:text-blue-500 cursor-pointer">
-                        Friends Wishlist
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <h3 className="font-semibold">Private</h3>
-                    <ul className="ml-4 list-disc">
-                      <li className="hover:text-blue-500 cursor-pointer">
-                        Personal Favorites
-                      </li>
-                      <li className="hover:text-blue-500 cursor-pointer">
-                        Secret Wishlist
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
+              <div className="mt-2 p-1">
+                {wishlists.map((wishlist) => (
+                  <div
+                    className="my-2 p-1 w-full bg-gray-200 cursor-pointer rounded-md hover:bg-amber-200"
+                    key={wishlist.wishlist_id}
+                    onClick={() => {
+                      router.push(`/wishlist/${wishlist.wishlist_id}`);
+                    }}
+                  >
+                    {wishlist.name}
+                  </div>
+                ))}
               </div>
             </div>
           )}
@@ -151,33 +110,21 @@ const Page = () => {
               <CollectionCard
                 key={wishlist.wishlist_id}
                 title={wishlist.name}
-                createdBy={wishlist.created_by}
+                createdBy={
+                  wishlist.created_by === username
+                    ? `${wishlist.created_by} (you)`
+                    : wishlist.created_by
+                }
                 lastUpdated={new Date(wishlist.created_at).toLocaleDateString()}
                 wishlist_id={wishlist.wishlist_id}
               />
             ))}
           </div>
+          {isEmpty && <EmptyWishlist />}
         </div>
       </div>
 
-      <div>
-        {isEmpty && (
-          <>
-            <div className="flex flex-col justify-center items-center min-h-screen">
-              <div className="flex flex-col items-center justify-center flex-grow">
-                <h1 className="text-3xl font-bold text-gray-800 mt-6">
-                  Your Wishlist is empty
-                </h1>
-                <p className="text-lg text-gray-600 mt-2">
-                  Add items to your wishlist to keep track of what you love.
-                </p>
-                <NewCollectionButton />
-              </div>
-            </div>
-          </>
-        )}
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };
