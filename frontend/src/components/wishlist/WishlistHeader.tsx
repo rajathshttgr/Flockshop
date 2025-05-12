@@ -35,21 +35,29 @@ const WishlistHeader: React.FC<Props> = ({
         {isNewUser === null ? (
           <div />
         ) : isNewUser ? (
-          <button
-            className="ml-2 m-1 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
-            onClick={onFollowClick}
-          >
-            {isFollow}
-          </button>
-        ) : (
           <div className="flex gap-4">
             <button
-              className="px-4 py-2 m-1 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
+              className="ml-2 m-1 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition cursor-pointer"
+              onClick={onFollowClick}
+            >
+              {isFollow}
+            </button>
+            <button
+              className="cursor-pointer px-4 py-2 m-1 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
               onClick={onShareClick}
             >
               Share
             </button>
-            <button className="px-4 py-2 m-1 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition">
+          </div>
+        ) : (
+          <div className="flex gap-4">
+            <button
+              className="cursor-pointer px-4 py-2 m-1 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
+              onClick={onShareClick}
+            >
+              Share
+            </button>
+            <button className="cursor-pointer px-4 py-2 m-1 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition">
               Edit
             </button>
           </div>

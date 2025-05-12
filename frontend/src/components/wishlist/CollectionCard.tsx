@@ -37,13 +37,13 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
         </div>
         <div className="flex gap-2">
           <button
-            className="p-2 rounded-lg bg-gray-100 hover:bg-indigo-100 text-gray-600 hover:text-indigo-600 transition-colors"
+            className="cursor-pointer p-2 rounded-lg bg-gray-100 hover:bg-indigo-100 text-gray-600 hover:text-indigo-600 transition-colors"
             aria-label="Edit"
           >
             <FaEdit className="h-4 w-4" />
           </button>
           <button
-            className="p-2 rounded-lg bg-gray-100 hover:bg-red-100 text-gray-600 hover:text-red-600 transition-colors"
+            className="cursor-pointer p-2 rounded-lg bg-gray-100 hover:bg-red-100 text-gray-600 hover:text-red-600 transition-colors"
             aria-label="Delete"
           >
             <MdDelete className="h-4 w-4" />

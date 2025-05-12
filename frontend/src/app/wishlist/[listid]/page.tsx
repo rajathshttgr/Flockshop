@@ -110,7 +110,7 @@ const Page = () => {
       <div className="flex justify-center items-center mt-12 mb-20">
         <button
           onClick={() => router.push("/")}
-          className="w-80 flex items-center justify-center bg-gradient-to-r from-amber-400 to-yellow-500 text-white font-semibold text-lg px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:from-amber-500 hover:to-yellow-600 transition transform hover:scale-105"
+          className="cursor-pointer w-80 flex items-center justify-center bg-gradient-to-r from-amber-400 to-yellow-500 text-white font-semibold text-lg px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:from-amber-500 hover:to-yellow-600 transition transform hover:scale-105"
         >
           <FaShoppingCart className="mr-2 text-xl" />
           Browse More
