@@ -1,11 +1,5 @@
 # FlockShop.ai – Assignment
 
-This repository contains my submission for the **FlockShop.ai Assignment**. The goal of this assignment was to build a "Shared Wishlist App" where users can collaboratively create and manage wishlists in real-time.
-
-🔗 **Live Project**: [https://flockshop.vercel.app](https://flockshop.vercel.app)
-
----
-
 ## Screenshots & Demo
 
 - Screenshots of the app are available in the [screenshots](./screenshots) folder.
@@ -19,23 +13,23 @@ This repository contains my submission for the **FlockShop.ai Assignment**. The 
 
 #### Frontend
 
-- **Sign Up & Log In**: Dummy authentication implemented.
+- **Sign Up & Log In**: Authentication.
 - **Wishlist Management**:
   - Create, edit, and delete wishlists.
   - Add, edit, and remove products (name, image URL, price).
   - Display the user who added each product.
-- **Invite Users**: Mocked functionality to invite others to a wishlist.
+- **Invite Users**: Functionality to invite others to a wishlist.
 - **Responsive Design**: Mobile-friendly UI using TailwindCSS.
 
 #### Backend
 
 - **APIs**:
-  - User authentication (mocked).
+  - User authentication.
   - CRUD operations for wishlists and products.
   - Track user actions (who created/edited items).
 - **Database**: PostgreSQL used to store user data, wishlists, and product details.
 
-#### Bonus Features
+#### Other Features
 
 - **Real-Time Sync**: Implemented using WebSockets for collaborative updates.
 - **Comments & Reactions**: Added emoji reactions for wishlist items.
@@ -121,28 +115,3 @@ This repository contains my submission for the **FlockShop.ai Assignment**. The 
 
 - **Framework**: Node.js with Express
 - **Database**: PostgreSQL
-
-### Additional Tools
-
-- **Real-Time Sync**: WebSockets
-- **Environment Management**: dotenv
-- **Version Control**: Git
-
----
-
-## Assumptions & Limitations
-
-- Authentication is mocked for simplicity.
-- Invite functionality is not fully implemented.
-- Real-time sync is limited to wishlist updates.
-
----
-
-## Thoughts on Scaling
-
-- Implement a microservices architecture for scalability.
-- Use Redis for caching frequently accessed data.
-
----
-
-Thank you for reviewing my submission!
